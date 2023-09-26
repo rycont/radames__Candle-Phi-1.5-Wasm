@@ -1,6 +1,6 @@
 ---
 title: Candle Phi 1.5 Wasm
-emoji: 🔥
+emoji: 🕯️ɸ
 colorFrom: gray
 colorTo: purple
 sdk: static

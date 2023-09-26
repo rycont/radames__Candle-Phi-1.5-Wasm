@@ -32,8 +32,6 @@
         @apply underline hover:text-blue-500 hover:no-underline;
       }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.1/iframeResizer.contentWindow.min.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
       import snarkdown from "https://cdn.skypack.dev/snarkdown";
@@ -92,10 +90,7 @@
               outStatus.hidden = true;
               outCounter.hidden = false;
               outGen.hidden = false;
-
-              const p = prompt.replace(/\n|\\n/g, "  \n");
-              const generated = sentence.replace(/\n|\\n/g, "  \n");
-              outGen.innerHTML = snarkdown(p + generated);
+              outGen.innerHTML = snarkdown(prompt + sentence);
               outCounter.innerHTML = `${(totalTime / 1000).toFixed(
                 2
               )}s (${tokensSec.toFixed(2)} tok/s)`;

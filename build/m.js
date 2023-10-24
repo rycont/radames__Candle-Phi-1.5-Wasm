@@ -151,16 +151,19 @@ export class Model {
     /**
     * @param {Uint8Array} weights
     * @param {Uint8Array} tokenizer
+    * @param {Uint8Array} config
     * @param {boolean} quantized
     */
-    constructor(weights, tokenizer, quantized) {
+    constructor(weights, tokenizer, config, quantized) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
             const ptr0 = passArray8ToWasm0(weights, wasm.__wbindgen_malloc);
             const len0 = WASM_VECTOR_LEN;
             const ptr1 = passArray8ToWasm0(tokenizer, wasm.__wbindgen_malloc);
             const len1 = WASM_VECTOR_LEN;
-            wasm.model_load(retptr, ptr0, len0, ptr1, len1, quantized);
+            const ptr2 = passArray8ToWasm0(config, wasm.__wbindgen_malloc);
+            const len2 = WASM_VECTOR_LEN;
+            wasm.model_load(retptr, ptr0, len0, ptr1, len1, ptr2, len2, quantized);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             var r2 = getInt32Memory0()[retptr / 4 + 2];
@@ -299,7 +302,7 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
-    imports.wbg.__wbg_log_ff7e0b5e6573cdff = function(arg0, arg1) {
+    imports.wbg.__wbg_log_082f7c89404ec861 = function(arg0, arg1) {
         console.log(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbg_crypto_c48a774b022d20ac = function(arg0) {

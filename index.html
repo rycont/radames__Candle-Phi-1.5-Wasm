@@ -253,11 +253,11 @@ Very polite review:`,
           input.type = "radio";
           input.name = "task";
           input.id = `templates-${i}`;
-          input.classList.add("font-light", "cursor-pointer", "px-1");
+          input.classList.add("font-light", "cursor-pointer");
           input.value = prompt;
           const label = document.createElement("label");
           label.htmlFor = `templates-${i}`;
-          label.classList.add("cursor-pointer");
+          label.classList.add("cursor-pointer", "px-1");
           label.innerText = title;
           div.appendChild(input);
           div.appendChild(label);
